@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testmonial Slider</title>
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+            font-family: cursive;
+            background-color: #3d0303;
+        }
+
+        .testimonial-container{
+            width: 500px;
+            height: 300px;
+            background-color: bisque;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+            min-width: 400px;
+            padding: 40px 20px;
+            margin: 5px;
+            position: relative;
+            
+        }
+        img{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -30%;
+        }
+
+        .username{
+            font-size: 15px;
+            font-weight: 100;
+        }
+    </style>
+</head>
+<body>
+    <div class = "testimonial-container">
+        <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="user-image">
+        <p class="text">I have been using Apple for over a year now and I love it! I can't imagine life without it. It's so easy to use, and the customer service is great.</p>
+        <h4 class="username">Cherise G</h4>
+    </div>
+
+    <script>
+        const testimonials = [
+            {
+                name : "Cherise G",
+                photourl : "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                testimonialText : "I have been using Apple for over a year now and I love it! I can't imagine life without it. It's so easy to use, and the customer service is great.",
+            },
+            {
+                name : "Jenny R",
+                photourl : "https://plus.unsplash.com/premium_photo-1688350808212-4e6908a03925?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                testimonialText :  "I have been an Apple user for years and I can confidently say that their products are top-notch. From iPhones to MacBooks, the quality and performance are always exceptional.",
+            },
+            {
+                name : "Margarita K",
+                photourl : "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1288&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                testimonialText : "Apple's commitment to privacy and security is one of the main reasons I continue to be a loyal customer. I feel confident that my personal information is safe and secure on all my Apple devices.",
+            },
+             {
+                name : "Hemsworth F",
+                photourl : "https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D",
+                testimonialText : "I recently upgraded to the iPhone 12 and the camera quality is beyond impressive. The photos I capture are stunning and rival those taken with a professional camera.",
+            },
+        ];
+        
+        const imgEl = document.querySelector("img");
+        const textEl = document.querySelector(".text")
+        const usernameEl = document.querySelector(".username");
+        let idx = 0;
+
+        updateTestimonial();
+        function updateTestimonial(){
+            const{name, photourl, testimonialText} = testimonials[idx];
+            imgEl.src = photourl;
+            textEl.innerText = testimonialText;
+            usernameEl.innerText = name;
+            idx++;
+            if(idx === testimonials.length){
+                idx = 0;
+            }
+            setTimeout(() => {
+              updateTestimonial();
+            },5000)
+        }
+    </script>
+</body>
+</html>
